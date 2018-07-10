@@ -5,7 +5,6 @@ $(document).ready(function(){
             gameObject.numberOfPlayers++;
             gameObject.player1.name = uName;
             playerNumber = 1;
-            console.log('it came here!');
             writeToDB();
         }
         else if(gameObject.player2.name === '' && gameObject.player1.name !== ''){
@@ -48,7 +47,7 @@ $(document).ready(function(){
                 elem2.append(`<p>wins : ${player2.wins}</p>`);
                 elem2.append(`<p>losses : ${player2.losses}</p>`);
                 elem2.append(`<p>ties : ${player2.ties}</p>`);
-                $('#message-box').append(`<h3>${gameObject.message}</h3>`);
+                $('#message-box').append(`<h3>${snapshot.child("message").val()}</h3>`);
             }
         } else if(playerNumber === 2){
             if(choice2 === ''){
@@ -67,7 +66,7 @@ $(document).ready(function(){
                 elem2.append(`<p>wins : ${player2.wins}</p>`);
                 elem2.append(`<p>losses : ${player2.losses}</p>`);
                 elem2.append(`<p>ties : ${player2.ties}</p>`);
-                $('#message-box').append(`<h3>${gameObject.message}</h3>`);
+                $('#message-box').append(`<h3>${snapshot.child("message").val()}</h3>`);
             }
         }
         gameObject.numberOfPlayers = snapshot.child("numberOfPlayers").val();
@@ -147,16 +146,16 @@ function writeToDB(){
 
 function resetGame(){
     gameObject = {
-        numberOfPlayers : 0,
+        numberOfPlayers : 2,
         player1 : {
-            name : '',
+            name : gameObject.player1.name,
             wins : gameObject.player1.wins,
             losses : gameObject.player1.losses,
             ties : gameObject.player1.ties,
             choice : ''
         },
         player2 : {
-            name : '',
+            name : gameObject.player2.name,
             wins : gameObject.player2.wins,
             losses : gameObject.player2.losses,
             ties : gameObject.player2.ties,
