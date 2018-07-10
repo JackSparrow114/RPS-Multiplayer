@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="javascript/game.js"></script>
+    <title>RPS MultiPlayer</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Welcome to Rock, Paper, Scissor!!!</h1>
+            </div>
+        </div>
+        <div class="row" id="row-2">
+            <div class="col-3">
+                <p>Enter Your Name : </p>
+            </div>
+            <div class="col-4">
+                <input type="text" id="userName" class="form-control">
+            </div>
+            <div class="col-3">
+                <input type="button" value="submit" class="btn btn-primary" id="enterName">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 player-box" id="player1">
+                <h2>Player 1</h2>
+                <p></p>
+            </div>
+            <div class="col-3 player-box" id="message-box">
+            </div>
+            <div class="col-4 player-box" id="player2">
+                <h2>Player 2</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" id="resetBtnDiv">
+                <button type="button" class="btn btn-primary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
