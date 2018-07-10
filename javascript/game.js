@@ -16,6 +16,10 @@ $(document).ready(function(){
         $('#row-2').html(`<div class="col"><p>Welcome to the game ${uName}!! You are Player ${playerNumber}</p></div>`);
     });
 
+    $(document).on("click","#restartBtn",function(){
+        restartGame();
+    });
+
     $(document).on("click","#resetBtn",function(){
         resetGame();
     });
@@ -47,7 +51,7 @@ $(document).ready(function(){
                 elem2.append(`<p>wins : ${player2.wins}</p>`);
                 elem2.append(`<p>losses : ${player2.losses}</p>`);
                 elem2.append(`<p>ties : ${player2.ties}</p>`);
-                $('#message-box').append(`<h3>${snapshot.child("message").val()}</h3>`);
+                $('#message-box').html(`<h3>${snapshot.child("message").val()}</h3>`);
             }
         } else if(playerNumber === 2){
             if(choice2 === ''){
@@ -66,7 +70,7 @@ $(document).ready(function(){
                 elem2.append(`<p>wins : ${player2.wins}</p>`);
                 elem2.append(`<p>losses : ${player2.losses}</p>`);
                 elem2.append(`<p>ties : ${player2.ties}</p>`);
-                $('#message-box').append(`<h3>${snapshot.child("message").val()}</h3>`);
+                $('#message-box').html(`<h3>${snapshot.child("message").val()}</h3>`);
             }
         }
         gameObject.numberOfPlayers = snapshot.child("numberOfPlayers").val();
@@ -144,9 +148,10 @@ function writeToDB(){
     console.log(gameObject,playerNumber);
 }
 
-function resetGame(){
+function restartGame(){
     gameObject = {
         numberOfPlayers : 2,
+        message : '',
         player1 : {
             name : gameObject.player1.name,
             wins : gameObject.player1.wins,
@@ -163,7 +168,29 @@ function resetGame(){
         }
     }
     writeToDB();
-    playerNumber = 0;
+    winner = '';
+}
+
+function resetGame(){
+    gameObject = {
+        numberOfPlayers : 0,
+        message : '',
+        player1 : {
+            name : '',
+            wins : '',
+            losses : '',
+            ties : '',
+            choice : ''
+        },
+        player2 : {
+            name : '',
+            wins : '',
+            losses : '',
+            ties : '',
+            choice : ''
+        }
+    }
+    writeToDB();
     winner = '';
 }
 
